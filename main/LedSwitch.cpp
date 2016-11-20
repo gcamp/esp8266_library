@@ -1,17 +1,15 @@
 #include "LedSwitch.h"
-#include "printer.h"
-#include <ESP8266WiFi.h>
 
-void LedSwitch::setup() {
+LedSwitch::LedSwitch():Service(ServiceType::Switch) {
   pinMode(LED_BUILTIN, OUTPUT); 
-  set(false);
+  handlePayload("OFF");
 }
-
-const char* LedSwitch::getName() {
+  
+String LedSwitch::getName() {
   return "led";
 }
 
-void LedSwitch::set(bool value) {
-    digitalWrite(LED_BUILTIN, value ? LOW : HIGH); 
+void LedSwitch::handlePayload(String payload) {
+    digitalWrite(LED_BUILTIN, (payload == "ON") ? LOW : HIGH); 
 }
 

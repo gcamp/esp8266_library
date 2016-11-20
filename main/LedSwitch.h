@@ -2,15 +2,14 @@
 #ifndef LedSwitch_H
 #define LedSwitch_H
 
-#include "Switch.h"
+#include "Service.h"
 
-class LedSwitch : public Switch {
+class LedSwitch : public Service {
   public: 
+  LedSwitch();
 
-  void setup();
-
-  const char* getName();
-  void set(bool value);
+  String getName();
+  void handlePayload(String payload);
 };
 
 #endif

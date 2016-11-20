@@ -1,9 +1,14 @@
 #include "ServicesList.h"
 #include "LedSwitch.h"
+#include "config.h"
 
-std::vector<Switch*> ServicesList::switches;
+std::vector<Service*> ServicesList::services;
 
 void ServicesList::setupServices() {
-  switches.push_back(new LedSwitch());
+#ifdef SALON
+  services.push_back(new LedSwitch());
+#else
+
+#endif
 }
 

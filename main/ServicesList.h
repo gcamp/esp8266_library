@@ -2,13 +2,13 @@
 #ifndef ServicesList_H
 #define ServicesList_H
 
-#include "LedSwitch.h"
 #include <vector>
+#include "Service.h"
 
 class ServicesList {
   public:
   
-  static std::vector<Switch*> switches;
+  static std::vector<Service*> services;
   static void setupServices();
 };
 
