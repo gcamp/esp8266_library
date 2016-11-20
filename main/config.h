@@ -1,6 +1,6 @@
-#define wifi_ssid "ssid"
-#define wifi_password "password"
+#define wifi_ssid "BestDuplexEver"
+#define wifi_password "SansDavid!"
 
-#define mqtt_server ""
-#define mqtt_user ""
-#define mqtt_password ""
+#define mqtt_server "gcamp.duckdns.org"
+#define mqtt_user "gcamp"
+#define mqtt_password "Uha6IqaF%TRTT5ZTM~rBJ3D%U"
