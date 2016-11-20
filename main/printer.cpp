@@ -1,14 +1,7 @@
 #include "printer.h"
 #include <ESP8266WiFi.h>
 
-void setupSerial() {
-  #if ENABLE_PRINT
-  Serial.begin(115200);
-  #endif
-}
-
-int aprintf(char *str, ...) {
-#if ENABLE_PRINT
+int aprintf(const char *str, ...) {
   int i, j, count = 0;
 
   va_list argv;
@@ -50,6 +43,4 @@ int aprintf(char *str, ...) {
   }
 
   return count;
-#endif 
-  return 0;
 }

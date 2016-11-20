@@ -1,6 +1,7 @@
-#include "Print.h"
 
-#define ENABLE_PRINT 0
+#ifndef printer_H
+#define printer_H
 
-void setupSerial();
-int aprintf(char *str, ...);
+int aprintf(const char *str, ...);
+
+#endif
