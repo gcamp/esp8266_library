@@ -13,7 +13,6 @@ PubSubClient mqtt(mqtt_server, 1883, mqttCallback, espClient);
 void setup() {
   Serial.begin(115200);
   setupWifi();
-  ServicesList::setupServices();
 
   connectMqtt();
 }
@@ -61,10 +60,10 @@ void connectMqtt() {
     }
   }
 
-  for (auto aSwitch : ServicesList::services) {
-    auto topic = aSwitch->getTopic();
+  for (auto service : ServicesList::services) {
+    auto topic = service->getTopic();
     aprintf("Subscribing to %s\n", topic.c_str());
-    if (!mqtt.subscribe(topic.c_str())) {
+    if (!mqtt.subscribe(topic.c_str(), 1)) {
       aprintf("Something wrong happened");
     }
   }
@@ -75,4 +74,8 @@ void loop() {
     connectMqtt();
   }
   mqtt.loop();
+
+  for (auto service : ServicesList::services) {
+    service->handleLoop();
+  }
 }

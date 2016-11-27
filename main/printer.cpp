@@ -13,7 +13,10 @@ int aprintf(const char *str, ...) {
       Serial.write(reinterpret_cast<const uint8_t*>(str+j), i-j);
 
       switch (str[++i]) {
-        case 'd': Serial.print(va_arg(argv, int));
+        case 'd':
+        case 'i': Serial.print(va_arg(argv, int));
+          break;
+        case 'u': Serial.print(va_arg(argv, unsigned int));
           break;
         case 'l': Serial.print(va_arg(argv, long));
           break;

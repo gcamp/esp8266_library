@@ -10,7 +10,10 @@ String Service::getTopic() {
     case ServiceType::Switch: 
       typeString = "switch";
     break;
+    case ServiceType::Sensor: 
+      typeString = "sensor";
+    break;
   }
-  return String(mqtt_client_name) + "/" + typeString + "/" + getName();
+  return String("/") + mqtt_client_name + "/" + typeString + "/" + getName();
 }
 

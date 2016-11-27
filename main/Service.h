@@ -5,7 +5,8 @@
 #include <ESP8266WiFi.h>
 
 enum class ServiceType {
-  Switch
+  Switch,
+  Sensor
 };
 
 class Service {
@@ -15,7 +16,8 @@ class Service {
   String getTopic();
 
   virtual String getName() = 0;
-  virtual void handlePayload(String payload) = 0;
+  virtual void handlePayload(String payload) {}
+  virtual void handleLoop() {}
 
   private:
   ServiceType type;
